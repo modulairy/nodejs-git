@@ -1,0 +1,11 @@
+{
+    "name": "modulairy-simple-node-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "author": "Fatih Mehmet ARSLAN",
+    "license": "Apache 2.0",
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
