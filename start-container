@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+echo "Starting modulairy nodejs-git container"
+
+cd /var/www
+
+if [ ! -z "$GIT_REPOSITORY_URL" ]
+then
+        echo "git clone from $GIT_REPOSITORY_URL"
+        rm -rf * && git clone $GIT_REPOSITORY_URL .
+        if [ ! -z "$GIT_BRANCH" ]
+        then
+            echo "Checkout $GIT_BRANCH branch"
+            git checkout $GIT_BRANCH
+        fi
+fi
+
+echo installing...
+npm install
+
+echo Starting nodejs...
+node server.js
+echo Closing...
