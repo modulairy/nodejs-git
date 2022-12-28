@@ -10,6 +10,11 @@ WORKDIR /var/www/
 COPY init-project/* ./
 
 COPY start-container /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/start-container
+
+RUN chmod 775 /var/www/
+
 ENV PORT=9000
 
 EXPOSE 9000
