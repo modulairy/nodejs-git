@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -15,6 +15,17 @@ then
             echo "Checkout $GIT_BRANCH branch"
             git checkout $GIT_BRANCH
         fi
+fi
+
+if [ ! -z "$INIT_SCRIPT" ]
+then
+    cd /
+    echo "#!bin/bash" > initialize.sh
+    echo $INIT_SCRIPT >> initialize.sh 
+    chmod +x /initialize.sh
+
+    echo "running initialize script..."
+    exec $INIT_SCRIPT
 fi
 
 echo installing...
