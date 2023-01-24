@@ -33,11 +33,11 @@ npm install
 echo Starting nodejs...
 if [ ! -z "$START_SCRIPT" ]
 then
-    cd /
+    cd /var/www
     echo "#!bin/bash" > starts.sh
     echo $START_SCRIPT >> starts.sh 
-    chmod +x /starts.sh
-    exec $START_SCRIPT
+    chmod +x ./starts.sh
+    ./starts.sh
 else
     node server.js
 fi
