@@ -30,7 +30,16 @@ fi
 
 echo installing...
 npm install
-
 echo Starting nodejs...
-node server.js
+if [ ! -z "$START_SCRIPT" ]
+then
+    cd /var/www
+    echo "#!bin/bash" > starts.sh
+    echo $START_SCRIPT >> starts.sh 
+    chmod +x ./starts.sh
+    ./starts.sh
+else
+    node server.js
+fi
 echo Closing...
+
