@@ -20,7 +20,7 @@ fi
 if [ ! -z "$INIT_SCRIPT" ]
 then
     cd /
-    echo "#!bin/bash" > initialize.sh
+    echo "#\!/bin/bash" > initialize.sh
     echo $INIT_SCRIPT >> initialize.sh 
     chmod +x /initialize.sh
 
@@ -34,7 +34,7 @@ echo Starting nodejs...
 if [ ! -z "$START_SCRIPT" ]
 then
     cd /var/www
-    echo "#!bin/bash" > starts.sh
+    echo "#\!/bin/bash" > starts.sh
     echo $START_SCRIPT >> starts.sh 
     chmod +x ./starts.sh
     ./starts.sh
