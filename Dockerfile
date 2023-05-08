@@ -4,7 +4,7 @@ RUN apk update && apk add --no-cache wget bash && apk --no-cache add openssl wge
 RUN apk add git
 
 RUN wget -qO- "https://github.com/dustinblackman/phantomized/releases/download/2.1.1a/dockerized-phantomjs.tar.gz" | tar xz -C / \
-    && npm install -g phantomjs-prebuilt
+    && npm install -g phantomjs-prebuilt && npm install -g nodemon
     
 RUN apk --update add ttf-freefont fontconfig && rm -rf /var/cache/apk/*
 
