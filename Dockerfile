@@ -8,6 +8,7 @@ RUN wget -qO- "https://github.com/dustinblackman/phantomized/releases/download/2
     
 RUN apk --update add ttf-freefont fontconfig && rm -rf /var/cache/apk/*
 
+RUN limit nofile 65535 65535
 
 RUN mkdir -p /var/www
 
