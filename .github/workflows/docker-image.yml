@@ -53,3 +53,8 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USER_NAME }}
           password: ${{ secrets.DOCKER_HUB }}
           repository: modulairy/nodejs-git
+      -
+        name: Publish to ARM Architecture
+        run: |
+          docker tag modulairy/nodejs-git modulairy/nodejs-git:arm
+          docker push modulairy/nodejs-git:arm
